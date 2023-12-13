@@ -1,0 +1,60 @@
+mysql> CREATE TABLE Movies(movie_id INT, title VARCHAR(100), director VARCHAR(50), release_year INT, genre VARCHAR(50));
+Query OK, 0 rows affected (0,03 sec)
+
+mysql> ALTER TABLE Movies ADD rating DECIMAL(3,1);
+Query OK, 0 rows affected (0,03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE Student(student_id INT, student_name VARCHAR(50), age INT, grade VARCHAR(2));
+Query OK, 0 rows affected (0,05 sec)
+
+mysql> DROP TABLE Student;
+Query OK, 0 rows affected (0,03 sec)
+
+mysql> CREATE TABLE Events(event_id INT, event_name VARCHAR(100), date DATE, location VARCHAR(100));
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> INSERT INTO Events VALUES (523, 'Concert by Suede', '2024-04-18', 'Zoom Club, Frankfurt');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> SELECT * FROM Events;
++----------+------------------+------------+----------------------+
+| event_id | event_name       | date       | location             |
++----------+------------------+------------+----------------------+
+|      523 | Concert by Suede | 2024-04-18 | Zoom Club, Frankfurt |
++----------+------------------+------------+----------------------+
+1 row in set (0,00 sec)
+
+mysql> TRUNCATE TABLE Events;
+Query OK, 0 rows affected (0,04 sec)
+
+mysql> SELECT * FROM Events;
+Empty set (0,00 sec)
+
+mysql> DESCRIBE Events;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| event_id   | int          | YES  |     | NULL    |       |
+| event_name | varchar(100) | YES  |     | NULL    |       |
+| date       | date         | YES  |     | NULL    |       |
+| location   | varchar(100) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+4 rows in set (0,01 sec)
+
+mysql> CREATE TABLE Restaurants(restaurant_id INT, name VARCHAR(50), cuisine VARCHAR(50), location VARCHAR(100));
+Query OK, 0 rows affected (0,03 sec)
+
+mysql> ALTER TABLE Restaurants RENAME TO DiningSpots;
+Query OK, 0 rows affected (0,03 sec)
+
+mysql> SHOW TABLES;
++----------------+
+| Tables_in_mydb |
++----------------+
+| DiningSpots    |
+| Events         |
+| Movies         |   |
++----------------+
+3 rows in set (0,00 sec)
+
